@@ -2,11 +2,12 @@ from flask import Flask
 from flask_restful import Api
 
 from src.api.user import CreateUser, ReadUser, UpdateUser, DeleteUser, ReadAllUser
+from src.api.helloworld import HelloWorld
 from src.db.database import init_db
 
 app = Flask(__name__)
 api = Api(app)
-
+api.add_resource(HelloWorld, '/')
 api.add_resource(CreateUser, '/user')
 api.add_resource(ReadUser, '/user/<string:id>')
 api.add_resource(UpdateUser, '/user/<string:id>')
